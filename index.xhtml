@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Hospital Panamericano</title>
+    </h:head>
+    <h:body>
+         <p:layout fullPage="true">
+           
+                    <p:panel header="HOSPITAL PANAMERICANO">       
+                    <div align="center">BIENVENIDOS AL HOSPITAL PANAMERICANO</div>
+                    </p:panel>                              
+                
+                <h:form>
+                    <p:growl autoUpdate="true"/>
+ 
+                    <p:panelMenu style="width:300px">
+                        <p:submenu label="Usuario">
+                            <p:menuitem value="Iniciar Sesión" url='http://localhost:1108/h_pana/login.xhtml' actionListener="#{menuView.update}" icon="ui-icon-user-1" />
+                            <p:menuitem value="Registrarse" actionListener="#{menuView.save}"  icon="ui-icon-user-add-outline" />
+                        </p:submenu>
+                        <p:submenu label="citas">
+                            <p:menuitem value="solicitar" actionListener="#{menuView.update}"  ajax="false" icon="ui-icon-plus-1"/>
+                            <p:menuitem value="consultar" actionListener="#{menuView.search}"  ajax="false" icon="ui- icon-search-1"/>
+                            <p:menuitem value="cancelar" actionListener="#{menuView.delete}"  ajax="false" icon="ui-icon-close"/>    
+                        </p:submenu>
+                        <p:separator />
+                        <p:submenu label="Nosotros" >
+                            <p:submenu label="Links" icon="ui-icon-extlink">
+                                    <p:menuitem value="Conocenos" url="https://www.youtube.com/watch?v=y6oXW_YiV6g" icon="ui-icon-home" />
+                                    <p:menuitem value="Servicios" url="https://www.youtube.com/watch?v=y6oXW_YiV6g" icon="ui-icon-document" />
+                                    <p:menuitem value="Como Llegar" url="https://www.youtube.com/watch?v=y6oXW_YiV6g" icon="ui-icon-arrowthick-1-s" />
+                                    <p:menuitem value="Ayudas" url="https://www.youtube.com/watch?v=y6oXW_YiV6g" icon="ui-icon-wrench" />
+                            </p:submenu>
+                        </p:submenu>
+                    </p:panelMenu>
+                </h:form>
+        </p:layout>
+    </h:body>
+</html>
+
