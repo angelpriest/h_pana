@@ -9,26 +9,23 @@
     </h:head>
     <h:body>
          <p:layout fullPage="true">
-           
                     <p:panel header="HOSPITAL PANAMERICANO">       
                     <div align="center">BIENVENIDOS AL HOSPITAL PANAMERICANO</div>
                     </p:panel>                              
-                
                 <h:form>
                     <p:growl autoUpdate="true"/>
- 
-                    <p:panelMenu style="width:300px">
-                        <p:submenu label="Usuario">
-                            <p:menuitem value="Iniciar Sesión" url='http://localhost:1108/h_pana/login.xhtml' actionListener="#{menuView.update}" icon="ui-icon-user-1" />
-                            <p:menuitem value="Registrarse" actionListener="#{menuView.save}"  icon="ui-icon-user-add-outline" />
+                    <center>
+                    <p:menubar style="width:450px">
+                        <p:submenu label="Inicio">
+                            <p:menuitem value="Iniciar Sesión" url='http://localhost:8080/h_pana/faces/login.xhtml'/>
+                            <p:menuitem value="Registrarse" url='http://localhost:8080/h_pana/welcomePrimefaces.xhtml'/>
                         </p:submenu>
-                        <p:submenu label="citas">
-                            <p:menuitem value="solicitar" actionListener="#{menuView.update}"  ajax="false" icon="ui-icon-plus-1"/>
-                            <p:menuitem value="consultar" actionListener="#{menuView.search}"  ajax="false" icon="ui- icon-search-1"/>
-                            <p:menuitem value="cancelar" actionListener="#{menuView.delete}"  ajax="false" icon="ui-icon-close"/>    
+                        <p:submenu label="Servicios">
+                            <p:menuitem value="solicitar" icon="ui-icon-plus-1"/>
+                            <p:menuitem value="consultar" icon="ui- icon-search-1"/>
+                            <p:menuitem value="cancelar" icon="ui-icon-close"/>    
                         </p:submenu>
-                        <p:separator />
-                        <p:submenu label="Nosotros" >
+                        <p:submenu label="Contactenos" >
                             <p:submenu label="Links" icon="ui-icon-extlink">
                                     <p:menuitem value="Conocenos" url="https://www.youtube.com/watch?v=y6oXW_YiV6g" icon="ui-icon-home" />
                                     <p:menuitem value="Servicios" url="https://www.youtube.com/watch?v=y6oXW_YiV6g" icon="ui-icon-document" />
@@ -36,9 +33,14 @@
                                     <p:menuitem value="Ayudas" url="https://www.youtube.com/watch?v=y6oXW_YiV6g" icon="ui-icon-wrench" />
                             </p:submenu>
                         </p:submenu>
-                    </p:panelMenu>
+                        <p:submenu label="Como Legar">
+                            <p:menuitem value="solicitar" icon="ui-icon-plus-1"/>
+                            <p:menuitem value="consultar" icon="ui- icon-search-1"/>
+                            <p:menuitem value="cancelar" icon="ui-icon-close"/>    
+                        </p:submenu>
+                    </p:menubar> 
+                    </center>    
                 </h:form>
         </p:layout>
     </h:body>
 </html>
-
