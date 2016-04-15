@@ -4,14 +4,29 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <link rel="stylesheet" href="css\css.css" type="text/css" media="all" />
     <h:head>
         <title>Hospital Panamericano</title>
     </h:head>
     <h:body>
-         <p:layout fullPage="true">
+                    <p:layout fullPage="true">
                     <p:panel header="HOSPITAL PANAMERICANO">       
                     <div align="center">BIENVENIDOS AL HOSPITAL PANAMERICANO</div>
-                    </p:panel>                              
+                    </p:panel>
+                    <h:form >
+                    <div id="search" align="right">
+                        <form method="get" action="#">
+                            <fieldset>
+                                <p:button value="Mi Cuenta" /> 
+                                <p:inputText type="text" id="search-text" size="10" />
+                                <p:commandButton value="buscar"  />
+                                <!--input type="text" name="s"  size="10" />
+                                <input type="submit" id="search-submit" value="BUSCAR" /-->
+                            </fieldset>
+                        </form>
+                    </div>
+                    </h:form>
+                        
                 <h:form>
                     <p:growl autoUpdate="true"/>
                     <center>
@@ -39,8 +54,11 @@
                             <p:menuitem value="cancelar" icon="ui-icon-close"/>    
                         </p:submenu>
                     </p:menubar> 
-                    </center>    
+                    </center><br></br> <br></br>                    
+                    <center><img src="imagenes\doctores 2.png" width="600" height="350" /></center>
                 </h:form>
         </p:layout>
+          
     </h:body>
 </html>
+
