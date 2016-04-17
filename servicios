@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+        <title>Hospital Panamericano</title>
+    </h:head>
+    <h:body>
+        <p:layout fullPage="true"> 
+            <p:panel header="HOSPITAL PANAMERICANO">       
+                <div align="center">BIENVENIDOS AL HOSPITAL PANAMERICANO</div>
+            </p:panel>
+            <h:form>
+                <div id="search" align="right">
+                    <form method="get" action="#">
+                        <fieldset>
+
+                            <a href="http://localhost:8080/hospital_pana/faces/login.xhtml"><p:button value="Mi Cuenta" icon="ui-icon-home" /></a>
+                            <p:inputText type="text" id="search-text" size="10" />
+                            <p:commandButton value="buscar" icon="ui-icon-search"  />
+                            <!--input type="text" name="s"  size="10" />
+                            <input type="submit" id="search-submit" value="BUSCAR" /-->
+                        </fieldset>
+                    </form>
+                </div>
+            </h:form>
+            <h:form>
+                    <p:growl autoUpdate="true"/>
+                    <center>
+                    <p:menubar style="width:440px">
+                        <p:menuitem value="Inicio" icon="ui-icon-circle-plus" url="http://localhost:8080/hospital_pana/faces/index.xhtml" />
+                        <p:menuitem value="Servicios" icon="ui-icon-tag" url="http://localhost:8080/hospital_pana/faces/servicios.xhtml" />
+                        <p:menuitem value="Contactenos" icon="ui-icon-pencil" url="http://localhost:8080/hospital_pana/faces/contactenos.xhtml" />
+                        <p:menuitem value="Como llegar" icon="ui-icon-flag" url="http://localhost:8080/hospital_pana/faces/comollegar.xhtml" />
+                    </p:menubar> 
+                    </center><br></br> <br></br>                    
+                    <center><img src="imagen\doctores2.png" width="600" height="350" /></center>
+                </h:form>        
+                <br />
+                <h:link outcome="welcomePrimefaces" value="Ingresa al portal" />
+        </p:layout>
+    </h:body>
+</html>
