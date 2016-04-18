@@ -6,6 +6,12 @@
     <h:head>
         <title>Hospital Panamericano</title>
     </h:head>
+        <style>
+body  {
+    background-image: url("http://www.ialbergo.it/images/bkg.jpg");
+    background-color: #cccccc;
+}
+</style>
     <h:body>
         <p:layout style="min-width:400px;min-height:500px;">  
             <p:panel header="HOSPITAL PANAMERICANO">       
@@ -16,7 +22,7 @@
                     <form method="get" action="#">
                         <fieldset>
 
-                            <a href="http://localhost:8080/hospital_pana/faces/login.xhtml"><p:button value="Mi Cuenta" icon="ui-icon-home" /></a>
+                            <a href="http://localhost:1108/h_pana/faces/micuenta.xhtml"><p:button value="Mi Cuenta" icon="ui-icon-home" /></a>
                             <p:inputText type="text" id="search-text" size="10" />
                             <p:commandButton value="buscar" icon="ui-icon-search"  />
                             <!--input type="text" name="s"  size="10" />
@@ -28,10 +34,10 @@
                     <center>
                         <p:growl autoUpdate="true"/>
                         <p:menubar style="width:440px">
-                            <p:menuitem value="Inicio" icon="ui-icon-circle-plus" url="http://localhost:8080/hospital_pana/faces/index.xhtml" />
-                            <p:menuitem value="Servicios" icon="ui-icon-tag" url="http://localhost:8080/hospital_pana/faces/servicios.xhtml" />
-                            <p:menuitem value="Contactenos" icon="ui-icon-pencil" url="http://localhost:8080/hospital_pana/faces/contactenos.xhtml" />
-                            <p:menuitem value="Como llegar" icon="ui-icon-flag" url="http://localhost:8080/hospital_pana/faces/comollegar.xhtml" />
+                            <p:menuitem value="Inicio" icon="ui-icon-circle-plus" url="http://localhost:1108/h_pana/faces/index.xhtml" />
+                            <p:menuitem value="Servicios" icon="ui-icon-tag" url="http://localhost:1108/h_pana/faces/servicios.xhtml" />
+                            <p:menuitem value="Contactenos" icon="ui-icon-pencil" url="http://localhost:1108/h_pana/faces/contactenos.xhtml" />
+                            <p:menuitem value="Como llegar" icon="ui-icon-flag" url="http://localhost:1108/h_pana/faces/comollegar.xhtml" />
                         </p:menubar> 
                             <br></br> <br></br>
                             <section>
