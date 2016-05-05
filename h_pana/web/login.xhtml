@@ -13,6 +13,9 @@ body  {
     background-image: url("http://www.ialbergo.it/images/bkg.jpg");
     background-color: #cccccc;
 }
+div {
+            color: green;
+        }
 </style>
     <h:body>
         <p:layout style="min-width:400px;min-height:200px;"> 
@@ -27,7 +30,7 @@ body  {
                         <h:outputText value="CONTRASEÑA: " />
                         <p:password id="nonFeedback" />
                     </h:panelGrid>
-                    <a href="http://localhost:1108/h_pana/faces/micuenta.xhtml"><p:button value="INGRESAR" /></a>
+                    <a href="http://localhost:1108/h_pana/faces/micuenta.xhtml"><p:button value="INICIAR SESIÓN" style="background-color:green" /></a>
                 </h:form>
                 <br />
                 <h:link outcome="welcomePrimefaces" value="Ingresa al portal" />
