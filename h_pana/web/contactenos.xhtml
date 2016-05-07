@@ -6,17 +6,17 @@
     <h:head>
         <title>Hospital Panamericano</title>
     </h:head>
-    <style>
+    <style type="text/css">
         body  {
             background-image: url("http://www.ialbergo.it/images/bkg.jpg");
             background-color: #cccccc;
         }
-        h2 {
+        h3 {
             color: blue;
         }
     </style>
     <h:body>
-        <p:layout > 
+        <p:layout> 
             <p:panel header="HOSPITAL PANAMERICANO">       
                 <div align="center">BIENVENIDOS AL HOSPITAL PANAMERICANO</div>
             </p:panel>
@@ -24,6 +24,7 @@
                 <div id="search" align="right">
                     <form method="get" action="#">
                         <fieldset>
+
                             <a href="http://localhost:8080/h_pana/faces/micuenta.xhtml"><p:button value="Mi Cuenta" icon="ui-icon-home" /></a>
                             <p:inputText type="text" id="search-text" size="10" />
                             <p:commandButton value="buscar" icon="ui-icon-search"  />
@@ -42,22 +43,44 @@
                         <p:menuitem value="Contactenos" icon="ui-icon-pencil" url="http://localhost:8080/h_pana/faces/contactenos.xhtml" />
                         <p:menuitem value="Como llegar" icon="ui-icon-flag" url="http://localhost:8080/h_pana/faces/comollegar.xhtml" />
                     </p:menubar> 
-                </center><br></br>                   
-            </h:form>
-            <div><h2>Contacto</h2></div>
-            <p>Comunicate con nosotros a tráves de los datos  que aparecen a continuación</p>
-            <h:panelGrid columns="4" cellpadding="">
-                <p:outputLabel value="Nombre " for="acSimple" />
-                <p:autoComplete id="acSimple" />
-                <h:outputText value="Email "  />
-                <p:password id="nonFeedback" />
-                <p:outputLabel value="Telefono "  />
-                <p:inputText /> 
-                <p>Comentarios</p>
-                <p:inputTextarea rows="6" cols="33" />
-                <p:button value="ENVIAR" style="background-color:green"/>
-            </h:panelGrid>
+                </center><br></br> <br></br>
+                <center>
+                    <h3 style="margin-top: 0cm ">Nuestros servicios</h3>
+                    <p:scrollPanel style="width:900px;height:400px">
+                        <p ALIGN="center">
+                            Contamos con uno de los más modernos del distrito, el servicio de urgencias adultos es atendido 
+                            las 24 horas del día por médicos capacitados en la atención de las diferentes patologías de acuerdo 
+                            a nuestro nivel de complejidad; y el servicio de urgencias pediátricas es atendido por especialistas 
+                            en pediatrías quienes valoran a los niños desde su ingreso hasta la definición de la conducta para 
+                            su respectivo egreso. La Institución cuenta con el servicio de urgencias para ginecobstetricia.
+                        </p>
+                        <br /><br />
+                        <center><img src="http://www.serviciosdocumentales.com/photos/servicios_hospital2_big.jpg" width="240" height="124" /></center>
+                        <p ALIGN="left">
+                            SERVICIOS:
+                            <br /><br />
+                            - Consulta de urgencias por medicina general.
+                            <br /><br />
+                            - Consulta de urgencias por medicina especializada.
+                            <br /><br />
+                            - Interconsulta por medicina especializada.
+                            <br /><br />
+                            - Servicio de Transporte asistencial básico.
+                            <br /><br />
+                            - Servicio de Transporte asistencial medicalizado
+                            <br /><br />
+                            - Servicio de urgencias de alta complejidad.
+                        </p>
+                        <br /><br />
+                        <center><img src="http://www.lhmweb.com.ar/images/hospital-slider.jpg" width="240" height="124" /></center>
+                        <br /><br />
+                        <br /><br />
+                    </p:scrollPanel>
+                </center>
+            </h:form>        
             <br />
+            <h:link outcome="welcomePrimefaces" value="Ingresa al portal" />
         </p:layout>
     </h:body>
 </html>
+
