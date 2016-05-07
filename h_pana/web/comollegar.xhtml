@@ -6,12 +6,15 @@
     <h:head>
         <title>Hospital Panamericano</title>
     </h:head>
-        <style>
-body  {
-    background-image: url("http://www.ialbergo.it/images/bkg.jpg");
-    background-color: #cccccc;
-}
-</style>
+    <style>
+        body  {
+            background-image: url("http://www.ialbergo.it/images/bkg.jpg");
+            background-color: #cccccc;
+        }
+        h2 {
+            color: blue;
+        }
+    </style>
     <h:body>
         <p:layout style="min-width:400px;min-height:500px;">  
             <p:panel header="HOSPITAL PANAMERICANO">       
@@ -22,11 +25,9 @@ body  {
                     <form method="get" action="#">
                         <fieldset>
 
-                            <a href="http://localhost:1108/h_pana/faces/micuenta.xhtml"><p:button value="Mi Cuenta" icon="ui-icon-home" /></a>
+                            <a href="http://localhost:8080/h_pana/faces/micuenta.xhtml"><p:button value="Mi Cuenta" icon="ui-icon-home" /></a>
                             <p:inputText type="text" id="search-text" size="10" />
                             <p:commandButton value="buscar" icon="ui-icon-search"  />
-                            <!--input type="text" name="s"  size="10" />
-                            <input type="submit" id="search-submit" value="BUSCAR" /-->
                         </fieldset>
                     </form>
                 </div>              
@@ -34,17 +35,20 @@ body  {
                     <center>
                         <p:growl autoUpdate="true"/>
                         <p:menubar style="width:440px">
-                            <p:menuitem value="Inicio" icon="ui-icon-circle-plus" url="http://localhost:1108/h_pana/faces/index.xhtml" />
-                            <p:menuitem value="Servicios" icon="ui-icon-tag" url="http://localhost:1108/h_pana/faces/servicios.xhtml" />
-                            <p:menuitem value="Contactenos" icon="ui-icon-pencil" url="http://localhost:1108/h_pana/faces/contactenos.xhtml" />
-                            <p:menuitem value="Como llegar" icon="ui-icon-flag" url="http://localhost:1108/h_pana/faces/comollegar.xhtml" />
+                            <p:menuitem value="Inicio" icon="ui-icon-circle-plus" url="http://localhost:8080/h_pana/faces/index.xhtml" />
+                            <p:menuitem value="Servicios" icon="ui-icon-tag" url="http://localhost:8080/h_pana/faces/servicios.xhtml" />
+                            <p:menuitem value="Contactenos" icon="ui-icon-pencil" url="http://localhost:8080/h_pana/faces/contactenos.xhtml" />
+                            <p:menuitem value="Como llegar" icon="ui-icon-flag" url="http://localhost:8080/h_pana/faces/comollegar.xhtml" />
                         </p:menubar> 
-                            <br></br> <br></br>
-                            <section>
-                                <!--img src="imagen\doctores2.png" /-->
-                                <!--h:link outcome="welcomePrimefaces" value="Ingresa al portal" /-->
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d7827.7153049219305!2d-74.22885765456098!3d11.198166127994634!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2ses!4v1460849116282" width="500" height="400" frameborder="0" style="border:0" allowfullscreen=" "></iframe>
-                            </section>    
+                        <br></br>
+                        <section>
+                            <div>
+                                <h2> Mapa</h2>
+                            </div>
+                            <p>El hospital Panamericano se encuentra ubicado  en la ciudad de Bogotá,(Colombia)cerca de vias principales.</p>
+                            <p>Descubre cómo llegar dando clic en el mapa </p>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d7827.7153049219305!2d-74.22885765456098!3d11.198166127994634!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2ses!4v1460849116282" width="500" height="400" frameborder="0" style="border:0" allowfullscreen=" "></iframe>
+                        </section>    
                     </center>
                 </div>    
             </h:form>        
