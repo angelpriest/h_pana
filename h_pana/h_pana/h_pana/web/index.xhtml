@@ -1,19 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-<h:head>
+    
+    <h:head>
         <title>Hospital Panamericano</title>
     </h:head>
-        <style>
+    <style>
 body  {
     background-image: url("http://www.ialbergo.it/images/bkg.jpg");
     background-color: #cccccc;
 }
 </style>
     <h:body>
-        <p:layout fullPage="true"> 
+        <p:layout style="min-width:400px;min-height:200px;"> 
             <p:panel header="HOSPITAL PANAMERICANO">       
                 <div align="center">BIENVENIDOS AL HOSPITAL PANAMERICANO</div>
             </p:panel>
@@ -24,7 +26,7 @@ body  {
 
                             <a href="http://localhost:1108/h_pana/faces/micuenta.xhtml"><p:button value="Mi Cuenta" icon="ui-icon-home" /></a>
                             <p:inputText type="text" id="search-text" size="10" />
-                            <p:commandButton value="buscar" icon="ui-icon-search"  />
+                            <p:button value="buscar" icon="ui-icon-search"  />
                             <!--input type="text" name="s"  size="10" />
                             <input type="submit" id="search-submit" value="BUSCAR" /-->
                         </fieldset>
@@ -41,7 +43,8 @@ body  {
                         <p:menuitem value="Como llegar" icon="ui-icon-flag" url="http://localhost:1108/h_pana/faces/comollegar.xhtml" />
                     </p:menubar> 
                     </center><br></br> <br></br>                    
-            </h:form>        
+                    <center><img src="imagenes\doctores.png" width="446" height="333" /></center>
+                </h:form>        
                 <br />
                 <h:link outcome="welcomePrimefaces" value="Ingresa al portal" />
         </p:layout>

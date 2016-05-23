@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title>Hospital Panamericano</title>
+    </h:head>
+    <style>
+        body  {
+            background-image: url("http://www.ialbergo.it/images/bkg.jpg");
+            background-color: #cccccc;
+        }
+    </style>
+    <h:body>
+        <p:layout style="min-width:400px;min-height:200px;"> 
+            <p:panel header="HOSPITAL PANAMERICANO">       
+            </p:panel>
+            <h:form>
+                <div id="search" align="left">
+                    <form method="get" action="#">
+                        <h:form>
+                            <h:panelGrid columns="2" cellpadding="5">
+                                <p:outputLabel value='Identificacion:' for="id"  />
+                                <p:autoComplete id="id" value="#{registro.id}"/>
+                                    
+                                <p:outputLabel value="Nombre:" for="nombre" />
+                                <p:autoComplete id="nombre" value="#{registro.nombre}"/>
+                                
+                                <p:outputLabel value="Apellido: " for="apellido" />
+                                <p:autoComplete id="apellido" value="#{registro.apellido}"/>
+                                
+                                <p:outputLabel for="fcNacimineto" value="Fecha De Nacimiento:" />
+                                <p:calendar id="fcNacimineto" value="#{registro.fcNacimiento}" locale="de" navigator="true" pattern="yyyy-MMM-dd" maxdate="23/5/16"/>
+                                
+                                <p:outputLabel for="telefono" value="Telefono Fijo:" />
+                                <p:inputMask id="telefono" value="#{registro.telefono}" mask="999-9999"/>
+
+                                <p:outputLabel for="celular" value="Telefono Celular:" />
+                                <p:inputMask id="celular" value="#{registro.celular}" mask="999-999-9999"/>
+
+                                <p:outputLabel value="Edad: " for="edad" />
+                                <p:autoComplete id="edad" value="#{registro.edad}"/>
+                                
+                                <p:outputLabel value="E mail: " for="eMail" />
+                                <p:autoComplete id="eMail" value="#{registro.eMail}"/>
+                                
+                                <p:outputLabel value="Direccion: " for="direccion" />
+                                <p:autoComplete id="direccion" value="#{registro.direccion}"/>
+
+                                <p:commandButton value="borrar" type="reset" />
+                                <p:commandButton value="guardar" update="display" oncomplete="PF('dlg').show()"/>
+                            </h:panelGrid>
+
+                            <p:dialog widgetVar="dlg" modal="true" resizable="false" header="Values" showEffect="fade"> 
+                                <p:panelGrid id="display" columns="2" columnClasses="label,value">
+                                    <h:outputText value="Identificacion: " />
+                                    <h:outputText id="acSimple0" value="#{maskView.identificacion}" />
+
+                                    <h:outputText value="Phone: " />
+                                    <h:outputText id="phoneValue" value="#{maskView.phone}" />
+
+                                    <h:outputText value="Phone with Ext: " />
+                                    <h:outputText id="phoneWithExtValue" value="#{maskView.phoneExt}"/>
+
+                                    <h:outputText value="taxId: " />
+                                    <h:outputText id="taxValue" value="#{maskView.taxId}" />
+
+                                    <h:outputText value="SSN: " />
+                                    <h:outputText id="ssnValue" value="#{maskView.ssn}" />
+
+                                    <h:outputText value="Product Key: " />
+                                    <h:outputText id="keyValue" value="#{maskView.productKey}" />
+                                </p:panelGrid>
+                            </p:dialog>
+                        </h:form>
+                    </form>
+                </div>
+            </h:form>
+            <br />
+        </p:layout>
+    </h:body>
+</html>
+
