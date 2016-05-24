@@ -21,8 +21,8 @@
             <h:form>
                 <div id="search" align="left">
                     <form method="get" action="#">
-                        <h:form>
-                            <h:panelGrid columns="2" cellpadding="5">
+                        <h:panelGrid columns="2" cellpadding="5">
+                            
                                 <p:outputLabel value='Identificacion:' for="id"  />
                                 <p:autoComplete id="id" value="#{registro.id}"/>
                                     
@@ -33,7 +33,7 @@
                                 <p:autoComplete id="apellido" value="#{registro.apellido}"/>
                                 
                                 <p:outputLabel for="fcNacimineto" value="Fecha De Nacimiento:" />
-                                <p:calendar id="fcNacimineto" value="#{registro.fcNacimiento}" locale="de" navigator="true" pattern="yyyy-MMM-dd" maxdate="23/5/16"/>
+                                <p:calendar id="fcNacimineto" <!--value="#{registro.fcNacimiento}" locale="de" navigator="true" pattern="yyyy-MMM-dd" maxdate="23/5/16"/-->>
                                 
                                 <p:outputLabel for="telefono" value="Telefono Fijo:" />
                                 <p:inputMask id="telefono" value="#{registro.telefono}" mask="999-9999"/>
@@ -45,37 +45,31 @@
                                 <p:autoComplete id="edad" value="#{registro.edad}"/>
                                 
                                 <p:outputLabel value="E mail: " for="eMail" />
-                                <p:autoComplete id="eMail" value="#{registro.eMail}"/>
+                                <p:autoComplete id="eMail" value="#{registro.correo}"/>
                                 
                                 <p:outputLabel value="Direccion: " for="direccion" />
                                 <p:autoComplete id="direccion" value="#{registro.direccion}"/>
 
                                 <p:commandButton value="borrar" type="reset" />
                                 <p:commandButton value="guardar" update="display" oncomplete="PF('dlg').show()"/>
-                            </h:panelGrid>
+                             </h:panelGrid>
 
                             <p:dialog widgetVar="dlg" modal="true" resizable="false" header="Values" showEffect="fade"> 
                                 <p:panelGrid id="display" columns="2" columnClasses="label,value">
                                     <h:outputText value="Identificacion: " />
-                                    <h:outputText id="acSimple0" value="#{maskView.identificacion}" />
-
-                                    <h:outputText value="Phone: " />
-                                    <h:outputText id="phoneValue" value="#{maskView.phone}" />
-
-                                    <h:outputText value="Phone with Ext: " />
-                                    <h:outputText id="phoneWithExtValue" value="#{maskView.phoneExt}"/>
-
-                                    <h:outputText value="taxId: " />
-                                    <h:outputText id="taxValue" value="#{maskView.taxId}" />
-
-                                    <h:outputText value="SSN: " />
-                                    <h:outputText id="ssnValue" value="#{maskView.ssn}" />
-
-                                    <h:outputText value="Product Key: " />
-                                    <h:outputText id="keyValue" value="#{maskView.productKey}" />
+                                    <h:outputText id="idValue" value="#{registro.id}" />
+                                    
+                                    <h:outputText value="Nombre: " />
+                                    <h:outputText id="nombreValue" value="#{registro.nombre}" />
+                                    
+                                    <h:outputText value="Apellido: " />
+                                    <h:outputText id="apellidoValue" value="#{registro.apellido}" />
+                                    
+                                    <!--<h:outputText value="Fecha De Nacimiento: " />
+                                    <h:outputText id="fcNacimientoValue" value="#{registro.fcNacimiento}" />-->
                                 </p:panelGrid>
                             </p:dialog>
-                        </h:form>
+                        
                     </form>
                 </div>
             </h:form>

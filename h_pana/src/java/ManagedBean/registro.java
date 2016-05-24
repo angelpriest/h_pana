@@ -4,16 +4,10 @@
  * and open the template in the editor.
  */
 package ManagedBean;
-package org.primefaces.showcase.view.input;
- 
-import java.util.Date;
-import javax.faces.bean.ManagedBean;
-import javax.annotation.ManagedBean;
 
-/**
- *
- * @author angel rivera
- */
+ 
+import javax.faces.bean.ManagedBean;
+
 
  
 @ManagedBean
@@ -22,11 +16,11 @@ public class registro {
     private String id;
     private String nombre;
     private String apellido;
-    private Date fcNacimiento;
+    private String fcNacimiento;
     private int telefono;
     private int celular;
     private int edad;
-    private String eMail;
+    private String correo;
     private String direccion;
  
     public String getId() {
@@ -53,11 +47,11 @@ public class registro {
         this.apellido = apellido;
     }
  
-    public Date getFcNacimiento() {
+    public String getFcNacimiento() {
         return fcNacimiento;
     }
  
-    public void setFcNacimiento(Date fcNacimiento) {
+    public void setFcNacimiento(String fcNacimiento) {
         this.fcNacimiento = fcNacimiento;
     }
  
@@ -74,6 +68,30 @@ public class registro {
     }
  
     public void setCelular(int celular) {
-        this.productKey = celular;
+        this.celular = celular;
+    }
+    
+    public int getEdad () {
+        return edad;
+    }
+    
+    public void setEdad (int edad) {
+        this.edad = edad;
+    }
+    
+    public String getCorreo() {
+        return correo;
+    }
+    
+    public void setCorreo(String correo) {
+        this.correo=correo;
+    }
+    
+    public String getDireccion() {
+        return direccion;
+    }
+    
+    public void setDireccion(String direccion) {
+        this.direccion=direccion;
     }
 }
