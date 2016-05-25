@@ -89,8 +89,6 @@ ALTER TABLE public.cita OWNER TO postgres;
 
 CREATE TABLE h_medico (
     no_identificacion integer NOT NULL,
-    enf_hereditarias character varying,
-    enf_sufridas character varying,
     enf_padece character varying,
     alcohol boolean,
     cigarrillo boolean,
@@ -147,6 +145,8 @@ CREATE TABLE paciente (
     paciente character varying(2),
     ref_familiar integer,
     no_identificacion integer NOT NULL
+    enf_hereditarias character varying,
+    enf_sufridas character varying,
 );
 
 
