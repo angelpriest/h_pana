@@ -10,40 +10,47 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Juan Carlos
  */
-@MappedSuperclass
-@Table(catalog = "h_pana", schema = "public")
-@XmlRootElement
+@Entity
+@NamedQueries({
+    @NamedQuery(name = "Persona.findAll", query = "SELECT p FROM Persona p"),
+    @NamedQuery(name = "Persona.findByNoIdentificacion", query = "SELECT p FROM Persona p WHERE p.noIdentificacion = :noIdentificacion"),
+    @NamedQuery(name = "Persona.findByNombres", query = "SELECT p FROM Persona p WHERE p.nombres = :nombres"),
+    @NamedQuery(name = "Persona.findByApellidos", query = "SELECT p FROM Persona p WHERE p.apellidos = :apellidos"),
+    @NamedQuery(name = "Persona.findByTelefonoFijo", query = "SELECT p FROM Persona p WHERE p.telefonoFijo = :telefonoFijo"),
+    @NamedQuery(name = "Persona.findByTelefonoCelular", query = "SELECT p FROM Persona p WHERE p.telefonoCelular = :telefonoCelular"),
+    @NamedQuery(name = "Persona.findByEdad", query = "SELECT p FROM Persona p WHERE p.edad = :edad"),
+    @NamedQuery(name = "Persona.findByFcNacimiento", query = "SELECT p FROM Persona p WHERE p.fcNacimiento = :fcNacimiento"),
+    @NamedQuery(name = "Persona.findByEMail", query = "SELECT p FROM Persona p WHERE p.eMail = :eMail"),
+    @NamedQuery(name = "Persona.findByDireccion", query = "SELECT p FROM Persona p WHERE p.direccion = :direccion")})
 public class Persona implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "no_identificacion", nullable = false)
+    @Column(name = "no_identificacion")
     private Integer noIdentificacion;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 2147483647)
-    @Column(nullable = false, length = 2147483647)
     private String nombres;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 2147483647)
-    @Column(nullable = false, length = 2147483647)
     private String apellidos;
     @Column(name = "telefono_fijo")
     private Integer telefonoFijo;
@@ -51,19 +58,17 @@ public class Persona implements Serializable {
     private Integer telefonoCelular;
     @Basic(optional = false)
     @NotNull
-    @Column(nullable = false)
     private int edad;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "fc_nacimiento", nullable = false)
+    @Column(name = "fc_nacimiento")
     @Temporal(TemporalType.DATE)
     private Date fcNacimiento;
     // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
     @Size(max = 2147483647)
-    @Column(name = "e_mail", length = 2147483647)
+    @Column(name = "e_mail")
     private String eMail;
     @Size(max = 2147483647)
-    @Column(length = 2147483647)
     private String direccion;
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "persona")
     private Paciente paciente;

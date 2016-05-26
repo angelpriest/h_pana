@@ -8,43 +8,49 @@ package entidades;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Juan Carlos
  */
-@MappedSuperclass
-@Table(catalog = "h_pana", schema = "public")
-@XmlRootElement
+@Entity
+@NamedQueries({
+    @NamedQuery(name = "Permisos.findAll", query = "SELECT p FROM Permisos p"),
+    @NamedQuery(name = "Permisos.findByDsLogin", query = "SELECT p FROM Permisos p WHERE p.dsLogin = :dsLogin"),
+    @NamedQuery(name = "Permisos.findByModulo", query = "SELECT p FROM Permisos p WHERE p.modulo = :modulo"),
+    @NamedQuery(name = "Permisos.findByFlPermiso", query = "SELECT p FROM Permisos p WHERE p.flPermiso = :flPermiso"),
+    @NamedQuery(name = "Permisos.findByFlAdd", query = "SELECT p FROM Permisos p WHERE p.flAdd = :flAdd"),
+    @NamedQuery(name = "Permisos.findByFlMod", query = "SELECT p FROM Permisos p WHERE p.flMod = :flMod"),
+    @NamedQuery(name = "Permisos.findByFlDel", query = "SELECT p FROM Permisos p WHERE p.flDel = :flDel")})
 public class Permisos implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "ds_login", nullable = false)
+    @Column(name = "ds_login")
     private Integer dsLogin;
     private Integer modulo;
     @Column(name = "fl_permiso")
     private Character flPermiso;
     @Size(max = 1)
-    @Column(name = "fl_add", length = 1)
+    @Column(name = "fl_add")
     private String flAdd;
     @Size(max = 1)
-    @Column(name = "fl_mod", length = 1)
+    @Column(name = "fl_mod")
     private String flMod;
     @Size(max = 1)
-    @Column(name = "fl_del", length = 1)
+    @Column(name = "fl_del")
     private String flDel;
-    @JoinColumn(name = "ds_login", referencedColumnName = "no_identificacion", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "ds_login", referencedColumnName = "no_identificacion", insertable = false, updatable = false)
     @OneToOne(optional = false)
     private Persona persona;
 

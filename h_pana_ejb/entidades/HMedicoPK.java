@@ -23,11 +23,11 @@ public class HMedicoPK implements Serializable {
 
     @Basic(optional = false)
     @NotNull
-    @Column(name = "no_identificacion", nullable = false)
+    @Column(name = "no_identificacion")
     private int noIdentificacion;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "fc_actualiza", nullable = false)
+    @Column(name = "fc_actualiza")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fcActualiza;
 

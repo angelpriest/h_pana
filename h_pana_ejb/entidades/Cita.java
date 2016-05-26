@@ -9,48 +9,50 @@ import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.Table;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Juan Carlos
  */
-@MappedSuperclass
-@Table(catalog = "h_pana", schema = "public")
-@XmlRootElement
+@Entity
+@NamedQueries({
+    @NamedQuery(name = "Cita.findAll", query = "SELECT c FROM Cita c"),
+    @NamedQuery(name = "Cita.findByNoCita", query = "SELECT c FROM Cita c WHERE c.noCita = :noCita"),
+    @NamedQuery(name = "Cita.findByFecha", query = "SELECT c FROM Cita c WHERE c.fecha = :fecha"),
+    @NamedQuery(name = "Cita.findByHora", query = "SELECT c FROM Cita c WHERE c.hora = :hora"),
+    @NamedQuery(name = "Cita.findByConsultorio", query = "SELECT c FROM Cita c WHERE c.consultorio = :consultorio"),
+    @NamedQuery(name = "Cita.findByEstado", query = "SELECT c FROM Cita c WHERE c.estado = :estado")})
 public class Cita implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "no_cita", nullable = false)
+    @Column(name = "no_cita")
     private Integer noCita;
     @Basic(optional = false)
     @NotNull
-    @Column(nullable = false)
     private Serializable fecha;
     @Temporal(TemporalType.TIME)
     private Date hora;
     @Size(max = 3)
-    @Column(length = 3)
     private String consultorio;
     @Size(max = 1)
-    @Column(length = 1)
     private String estado;
-    @JoinColumn(name = "medico", referencedColumnName = "no_identificacion", nullable = false)
+    @JoinColumn(name = "medico", referencedColumnName = "no_identificacion")
     @ManyToOne(optional = false)
     private Medico medico;
-    @JoinColumn(name = "paciente", referencedColumnName = "no_identificacion", nullable = false)
+    @JoinColumn(name = "paciente", referencedColumnName = "no_identificacion")
     @ManyToOne(optional = false)
     private Paciente paciente;
 

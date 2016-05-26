@@ -10,41 +10,39 @@ import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
  * @author Juan Carlos
  */
-@MappedSuperclass
-@Table(catalog = "h_pana", schema = "public", uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"no_identificacion"})})
-@XmlRootElement
+@Entity
+@NamedQueries({
+    @NamedQuery(name = "Medico.findAll", query = "SELECT m FROM Medico m"),
+    @NamedQuery(name = "Medico.findByArea", query = "SELECT m FROM Medico m WHERE m.area = :area"),
+    @NamedQuery(name = "Medico.findByEspecialidad", query = "SELECT m FROM Medico m WHERE m.especialidad = :especialidad"),
+    @NamedQuery(name = "Medico.findByNoIdentificacion", query = "SELECT m FROM Medico m WHERE m.noIdentificacion = :noIdentificacion")})
 public class Medico implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Size(max = 2147483647)
-    @Column(length = 2147483647)
     private String area;
     @Size(max = 2147483647)
-    @Column(length = 2147483647)
     private String especialidad;
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "no_identificacion", nullable = false)
+    @Column(name = "no_identificacion")
     private Integer noIdentificacion;
-    @JoinColumn(name = "no_identificacion", referencedColumnName = "no_identificacion", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "no_identificacion", referencedColumnName = "no_identificacion", insertable = false, updatable = false)
     @OneToOne(optional = false)
     private Persona persona;
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "medico")
@@ -99,7 +97,6 @@ public class Medico implements Serializable {
         this.agenda = agenda;
     }
 
-    @XmlTransient
     public List<Cita> getCitaList() {
         return citaList;
     }

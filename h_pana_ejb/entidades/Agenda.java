@@ -9,48 +9,52 @@ import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Juan Carlos
  */
-@MappedSuperclass
-@Table(catalog = "h_pana", schema = "public")
-@XmlRootElement
+@Entity
+@NamedQueries({
+    @NamedQuery(name = "Agenda.findAll", query = "SELECT a FROM Agenda a"),
+    @NamedQuery(name = "Agenda.findByNoIdentificacion", query = "SELECT a FROM Agenda a WHERE a.noIdentificacion = :noIdentificacion"),
+    @NamedQuery(name = "Agenda.findByHrInicial", query = "SELECT a FROM Agenda a WHERE a.hrInicial = :hrInicial"),
+    @NamedQuery(name = "Agenda.findByHrFinal", query = "SELECT a FROM Agenda a WHERE a.hrFinal = :hrFinal"),
+    @NamedQuery(name = "Agenda.findByFecha", query = "SELECT a FROM Agenda a WHERE a.fecha = :fecha"),
+    @NamedQuery(name = "Agenda.findByEstado", query = "SELECT a FROM Agenda a WHERE a.estado = :estado")})
 public class Agenda implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "no_identificacion", nullable = false)
+    @Column(name = "no_identificacion")
     private Integer noIdentificacion;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "hr_inicial", nullable = false)
+    @Column(name = "hr_inicial")
     @Temporal(TemporalType.TIME)
     private Date hrInicial;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "hr_final", nullable = false)
+    @Column(name = "hr_final")
     @Temporal(TemporalType.TIME)
     private Date hrFinal;
     @Basic(optional = false)
     @NotNull
-    @Column(nullable = false)
     @Temporal(TemporalType.DATE)
     private Date fecha;
     private Character estado;
-    @JoinColumn(name = "no_identificacion", referencedColumnName = "no_identificacion", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "no_identificacion", referencedColumnName = "no_identificacion", insertable = false, updatable = false)
     @OneToOne(optional = false)
     private Medico medico;
 

@@ -9,33 +9,44 @@ import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Juan Carlos
  */
-@MappedSuperclass
-@Table(name = "h_medico", catalog = "h_pana", schema = "public")
-@XmlRootElement
+@Entity
+@Table(name = "h_medico")
+@NamedQueries({
+    @NamedQuery(name = "HMedico.findAll", query = "SELECT h FROM HMedico h"),
+    @NamedQuery(name = "HMedico.findByNoIdentificacion", query = "SELECT h FROM HMedico h WHERE h.hMedicoPK.noIdentificacion = :noIdentificacion"),
+    @NamedQuery(name = "HMedico.findByEnfHereditarias", query = "SELECT h FROM HMedico h WHERE h.enfHereditarias = :enfHereditarias"),
+    @NamedQuery(name = "HMedico.findByEnfSufridas", query = "SELECT h FROM HMedico h WHERE h.enfSufridas = :enfSufridas"),
+    @NamedQuery(name = "HMedico.findByEnfPadece", query = "SELECT h FROM HMedico h WHERE h.enfPadece = :enfPadece"),
+    @NamedQuery(name = "HMedico.findByAlcohol", query = "SELECT h FROM HMedico h WHERE h.alcohol = :alcohol"),
+    @NamedQuery(name = "HMedico.findByCigarrillo", query = "SELECT h FROM HMedico h WHERE h.cigarrillo = :cigarrillo"),
+    @NamedQuery(name = "HMedico.findByFrecMedica", query = "SELECT h FROM HMedico h WHERE h.frecMedica = :frecMedica"),
+    @NamedQuery(name = "HMedico.findByFrecEjercicio", query = "SELECT h FROM HMedico h WHERE h.frecEjercicio = :frecEjercicio"),
+    @NamedQuery(name = "HMedico.findByFcActualiza", query = "SELECT h FROM HMedico h WHERE h.hMedicoPK.fcActualiza = :fcActualiza")})
 public class HMedico implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @EmbeddedId
     protected HMedicoPK hMedicoPK;
     @Size(max = 2147483647)
-    @Column(name = "enf_hereditarias", length = 2147483647)
+    @Column(name = "enf_hereditarias")
     private String enfHereditarias;
     @Size(max = 2147483647)
-    @Column(name = "enf_sufridas", length = 2147483647)
+    @Column(name = "enf_sufridas")
     private String enfSufridas;
     @Size(max = 2147483647)
-    @Column(name = "enf_padece", length = 2147483647)
+    @Column(name = "enf_padece")
     private String enfPadece;
     private Boolean alcohol;
     private Boolean cigarrillo;
@@ -43,7 +54,7 @@ public class HMedico implements Serializable {
     private Integer frecMedica;
     @Column(name = "frec_ejercicio")
     private Integer frecEjercicio;
-    @JoinColumn(name = "no_identificacion", referencedColumnName = "no_identificacion", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "no_identificacion", referencedColumnName = "no_identificacion", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Paciente paciente;
 

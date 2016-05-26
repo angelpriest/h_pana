@@ -10,19 +10,32 @@ import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Juan Carlos
  */
-@MappedSuperclass
-@Table(name = "m_metricas", catalog = "h_pana", schema = "public")
-@XmlRootElement
+@Entity
+@Table(name = "m_metricas")
+@NamedQueries({
+    @NamedQuery(name = "MMetricas.findAll", query = "SELECT m FROM MMetricas m"),
+    @NamedQuery(name = "MMetricas.findByPeso", query = "SELECT m FROM MMetricas m WHERE m.peso = :peso"),
+    @NamedQuery(name = "MMetricas.findByAltura", query = "SELECT m FROM MMetricas m WHERE m.altura = :altura"),
+    @NamedQuery(name = "MMetricas.findByPresion", query = "SELECT m FROM MMetricas m WHERE m.presion = :presion"),
+    @NamedQuery(name = "MMetricas.findByTrigliceridos", query = "SELECT m FROM MMetricas m WHERE m.trigliceridos = :trigliceridos"),
+    @NamedQuery(name = "MMetricas.findByColesterol", query = "SELECT m FROM MMetricas m WHERE m.colesterol = :colesterol"),
+    @NamedQuery(name = "MMetricas.findByGlicemia", query = "SELECT m FROM MMetricas m WHERE m.glicemia = :glicemia"),
+    @NamedQuery(name = "MMetricas.findByTiroides", query = "SELECT m FROM MMetricas m WHERE m.tiroides = :tiroides"),
+    @NamedQuery(name = "MMetricas.findByCreistina", query = "SELECT m FROM MMetricas m WHERE m.creistina = :creistina"),
+    @NamedQuery(name = "MMetricas.findByFcActualiza", query = "SELECT m FROM MMetricas m WHERE m.mMetricasPK.fcActualiza = :fcActualiza"),
+    @NamedQuery(name = "MMetricas.findByColesterolHdi", query = "SELECT m FROM MMetricas m WHERE m.colesterolHdi = :colesterolHdi"),
+    @NamedQuery(name = "MMetricas.findByNoIdentificacion", query = "SELECT m FROM MMetricas m WHERE m.mMetricasPK.noIdentificacion = :noIdentificacion")})
 public class MMetricas implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -30,23 +43,16 @@ public class MMetricas implements Serializable {
     protected MMetricasPK mMetricasPK;
     private Integer peso;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Column(precision = 2, scale = 2)
     private BigDecimal altura;
-    @Column(precision = 3, scale = 2)
     private BigDecimal presion;
-    @Column(precision = 3, scale = 2)
     private BigDecimal trigliceridos;
-    @Column(precision = 3, scale = 2)
     private BigDecimal colesterol;
-    @Column(precision = 3, scale = 2)
     private BigDecimal glicemia;
-    @Column(precision = 3, scale = 2)
     private BigDecimal tiroides;
-    @Column(precision = 3, scale = 2)
     private BigDecimal creistina;
-    @Column(name = "colesterol_hdi", precision = 3, scale = 2)
+    @Column(name = "colesterol_hdi")
     private BigDecimal colesterolHdi;
-    @JoinColumn(name = "no_identificacion", referencedColumnName = "no_identificacion", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "no_identificacion", referencedColumnName = "no_identificacion", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Paciente paciente;
 
