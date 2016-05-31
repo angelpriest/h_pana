@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title>Hospital Panamericano</title>
+    </h:head>
+    <style>
+        body  {
+            background-image: url("http://www.ialbergo.it/images/bkg.jpg");
+            background-color: #cccccc;
+        }
+    </style>
+    <h:body>
+        <p:layout style="min-width:400px;min-height:200px;"> 
+            <p:panel header="HOSPITAL PANAMERICANO">       
+            </p:panel>
+            <h:form>
+                <div id="search" align="center">
+                    <form method="get" action="#">
+                        <h:panelGrid columns="2" cellpadding="5">
+
+                            <p:outputLabel value="Peso: " for="peso"  />
+                            <p:autoComplete id="peso" value="#{metrica.peso}"/>
+
+                            <p:outputLabel value="Presión Arterial:" for="presion" />
+                            <p:autoComplete id="presion" value="#{metrica.presion}"/>
+
+                            <p:outputLabel value="Trigliceridos: " for="trigliceridos" />
+                            <p:autoComplete id="trigliceridos" value="#{metrica.trigliceridos}"/>
+
+                            <p:outputLabel value="colesterol: " for="colesterol" />
+                            <p:autoComplete id="colesterol" value="#{metrica.colesterol}"/>
+
+                            <p:outputLabel value="Glicemia: " for="glicemia" />
+                            <p:autoComplete id="glicemia" value="#{metrica.glicemia}"/>
+
+                            <p:outputLabel value="Tiroides: " for="tiroides" />
+                            <p:autoComplete id="tiroides" value="#{metrica.tiroides}"/>
+
+                            <p:outputLabel value="Creistina: " for="creistina" />
+                            <p:autoComplete id="creistina" value="#{metrica.creistina}"/>
+
+                            <p:outputLabel value="Colesterol: " for="colesterol" />
+                            <p:autoComplete id="colesterol" value="#{metrica.colesterol}"/>
+
+                            <p:commandButton value="Borrar" type="reset" />
+                            <p:button value="Guardar" outcome="inicio" />
+                            <p:button value="Cancelar" outcome="inicio" />
+                        </h:panelGrid>
+                        <center>
+                            
+                            
+                        </center>
+                    </form>
+                </div>
+            </h:form>
+            <br />
+        </p:layout>
+    </h:body>
+</html>
+
