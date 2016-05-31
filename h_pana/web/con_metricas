@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title>Hospital Panamericano</title>
+    </h:head>
+    <style>
+        body  {
+            background-image: url("http://www.ialbergo.it/images/bkg.jpg");
+            background-color: #cccccc;
+        }
+    </style>
+    <h:body>
+        <p:layout style="min-width:400px;min-height:200px;"> 
+            <p:panel header="HOSPITAL PANAMERICANO">       
+                <div align="center">BIENVENIDOS AL HOSPITAL PANAMERICANO</div>
+            </p:panel>
+            <h:form>
+                <div id="search" align="right">
+                    <form method="get" action="#">
+                        <fieldset>
+                            <a href="http://localhost:8080/h_pana/faces/inicio.xhtml"><p:button value="Inicio" icon="ui-icon-home" /></a>
+                            <a href="http://localhost:8080/h_pana/faces/cita.xhtml"><p:button value="Solicitar Cita" icon="ui-icon-plusthick" /></a>
+                            <a href="http://localhost:8080/h_pana/faces/index.xhtml"><p:button value="Cerrar Cesión" icon=" ui-icon-power"  /></a>
+                            <p:inputText type="text" id="search-text" size="10" />
+                            <!--input type="text" name="s"  size="10" />
+                            <input type="submit" id="search-submit" value="BUSCAR" /-->
+                        </fieldset>
+                    </form>
+                </div>
+            </h:form>
+            <h:form>
+                <p:growl autoUpdate="true"/>
+                <br></br> <br></br>                    
+                <p:panel header="PESO">       
+                    <p:chart type="line" model="#{pesoGraf.pesoModel}" style="height:400px;"/>
+                </p:panel>
+                <br></br> <br></br>
+                <p:panel header="ALTURA">       
+                <p:chart type="line" model="#{alturaGraf.alturaModel}" style="height:400px;"/>
+                </p:panel>
+                <br></br><br></br>
+                <p:panel header="PRESION ARTERIAL">       
+                    <p:chart type="line" model="#{presionGraf.presionModel}" style="height:400px;"/>
+                </p:panel>
+                <br></br><br></br>
+                <p:panel header="COLESTEROL">       
+                    <p:chart type="line" model="#{colesterolGraf.colesterolModel}" style="height:400px;"/>
+                </p:panel>
+                <br></br><br></br>
+                <p:panel header="TRIGLICERIDOS">       
+                    <p:chart type="line" model="#{trigliGraf.trigliModel}" style="height:400px;"/>
+                </p:panel>
+            </h:form>        
+            <br />
+
+        </p:layout>
+    </h:body>
+</html>
