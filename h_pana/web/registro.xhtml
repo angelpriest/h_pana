@@ -19,57 +19,44 @@
             <p:panel header="HOSPITAL PANAMERICANO">       
             </p:panel>
             <h:form>
-                <div id="search" align="left">
+                <div id="search" align="center">
                     <form method="get" action="#">
-                        <h:panelGrid columns="2" cellpadding="5">
+                        <h:panelGrid columns="2" cellpadding="4">
+
+                            <p:outputLabel value='Identificacion:' for="id"  />
+                            <p:autoComplete id="id" value="#{registro.id}"/>
+
+                            <p:outputLabel value="Nombres:" for="nombre" />
+                            <p:autoComplete id="nombre" value="#{registro.nombre}"/>
+
+                            <p:outputLabel value="Apellidos: " for="apellido" />
+                            <p:autoComplete id="apellido" value="#{registro.apellido}"/>
+
+                            <p:outputLabel for="fcNacimiento" value="Fecha De Nacimiento:" />
+                            <p:inputMask id="fcNacimiento" value="#{registro.fcNacimiento}" mask="99/99/9999" />
+
+                            <p:outputLabel for="telefono" value="Telefono Fijo:" />
+                            <p:inputMask id="telefono" value="#{registro.telefono}" mask="999-9999"/>
+
+                            <p:outputLabel for="celular" value="Telefono Celular:" />
+                            <p:inputMask id="celular" value="#{registro.celular}" mask="999-999-9999"/>
+
+                            <p:outputLabel value="Edad: " for="edad" />
+                            <p:autoComplete id="edad" value="#{registro.edad}"/>
+
+                            <p:outputLabel value="E mail: " for="eMail" />
+                            <p:autoComplete id="eMail" value="#{registro.correo}"/>
+
+                            <p:outputLabel value="Direccion: " for="direccion" />
+                            <p:autoComplete id="direccion" value="#{registro.direccion}"/>   
                             
-                                <p:outputLabel value='Identificacion:' for="id"  />
-                                <p:autoComplete id="id" value="#{registro.id}"/>
-                                    
-                                <p:outputLabel value="Nombre:" for="nombre" />
-                                <p:autoComplete id="nombre" value="#{registro.nombre}"/>
-                                
-                                <p:outputLabel value="Apellido: " for="apellido" />
-                                <p:autoComplete id="apellido" value="#{registro.apellido}"/>
-                                
-                                <p:outputLabel for="fcNacimineto" value="Fecha De Nacimiento:" />
-                                <p:calendar id="fcNacimineto" <!--value="#{registro.fcNacimiento}" locale="de" navigator="true" pattern="yyyy-MMM-dd" maxdate="23/5/16"/-->>
-                                
-                                <p:outputLabel for="telefono" value="Telefono Fijo:" />
-                                <p:inputMask id="telefono" value="#{registro.telefono}" mask="999-9999"/>
-
-                                <p:outputLabel for="celular" value="Telefono Celular:" />
-                                <p:inputMask id="celular" value="#{registro.celular}" mask="999-999-9999"/>
-
-                                <p:outputLabel value="Edad: " for="edad" />
-                                <p:autoComplete id="edad" value="#{registro.edad}"/>
-                                
-                                <p:outputLabel value="E mail: " for="eMail" />
-                                <p:autoComplete id="eMail" value="#{registro.correo}"/>
-                                
-                                <p:outputLabel value="Direccion: " for="direccion" />
-                                <p:autoComplete id="direccion" value="#{registro.direccion}"/>
-
-                                <p:commandButton value="borrar" type="reset" />
-                                <p:commandButton value="guardar" update="display" oncomplete="PF('dlg').show()"/>
-                             </h:panelGrid>
-
-                            <p:dialog widgetVar="dlg" modal="true" resizable="false" header="Values" showEffect="fade"> 
-                                <p:panelGrid id="display" columns="2" columnClasses="label,value">
-                                    <h:outputText value="Identificacion: " />
-                                    <h:outputText id="idValue" value="#{registro.id}" />
-                                    
-                                    <h:outputText value="Nombre: " />
-                                    <h:outputText id="nombreValue" value="#{registro.nombre}" />
-                                    
-                                    <h:outputText value="Apellido: " />
-                                    <h:outputText id="apellidoValue" value="#{registro.apellido}" />
-                                    
-                                    <!--<h:outputText value="Fecha De Nacimiento: " />
-                                    <h:outputText id="fcNacimientoValue" value="#{registro.fcNacimiento}" />-->
-                                </p:panelGrid>
-                            </p:dialog>
-                        
+                            
+                        </h:panelGrid>   
+                        <h:panelGrid columns="3" cellpadding="4"> 
+                            <p:commandButton value="Borrar" type="reset" />   
+                            <p:button value="Cancelar" outcome="micuenta" />
+                            <p:button value="Siguiente" outcome="passwd" /> 
+                        </h:panelGrid>
                     </form>
                 </div>
             </h:form>
